@@ -1,0 +1,85 @@
+<!--start sidebar-->
+<h4>Select Template</h4>
+
+<div class="row">
+    <div class="col-md-5 col-lg-4 col-sm-6 col-xl-3">
+        <!--Single Dimension Card-->
+        <div class="card">
+            <div class="card-block text-center">
+                <img class="singleChartImg" src="../../assets/img/2.png">
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-9 col-sm-8 col-8">
+                        <p style="font-size: 13px">Simlpe <b>Single Dimension</b> <br> Column Chart</p>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-4">
+                        <a class="btn   addTemplateBtn" (click)="createSingleChart()"><i class="fa fa-plus"  aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 col-lg-4 col-sm-6 col-xl-3">
+        <!--Multiple Dimension Card-->
+        <div class="card">
+            <div class="card-block text-center">
+                <img style="width: 185px" class="singleChartImg" src="../../assets/img/3.png">
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-9 col-8">
+                        <p style="font-size: 13px">Simlpe <b>Multi Dimension</b> <br> Column Chart</p>
+                    </div>
+                    <div class="col-md-3 col-4">
+                        <a class="btn   addTemplateBtn" (click)="createSingleChart()"><i class="fa fa-plus"  aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--row-->
+
+
+
+<div class="row">
+    <div class="col-12">
+        <h4>Get Inspired: View Public Gallery / Examples:</h4>
+    </div>
+    <div class="col-12">
+        <button class="btn filter selected-filter">All</button>
+        <button class="btn filter">Filter A</button>
+        <button class="btn filter">Filter B</button>
+        <button class="btn filter">Filter C</button>
+        <button class="btn filter">Filter D</button>
+    </div>
+
+</div>
+<!--<section id="card">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" *ngFor="let chart of getDbChartValues?.singleCharts; let i = index;">
+                <div style="width: 9.5rem;border: 1px solid lightgray;height: 12rem;margin-top: 2rem;margin-left: -4.8rem;">
+                    <div class="SinglechartFromChild">
+                        <real-preview [myValues]="chart"></real-preview>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" *ngFor="let chart of getDbChartValues?.multiCharts; let i = index;">
+                <div style="border: 1px solid lightgray; height: 60%; margin-top: 40%;">
+                    <div class="row  parentOfChildMultipleCard">
+                        <div class="MultiplechartFromChild" *ngFor="let nestedCharts of chart?.charts; let i = index">
+                            <real-preview [myValues]="nestedCharts"></real-preview>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>-->
+<!--End Card-->

@@ -1,0 +1,313 @@
+// headerValues
+.realPreviewChartHeading{
+    position: absolute;
+    color: gray;
+    margin-top: -2rem;
+    margin-left: -3.8rem;
+    font-size: 1rem;
+}
+.realPreviewChartInfo
+{
+    color: gray;
+    position: absolute;
+    margin-top: -2.2rem;
+    margin-left: 8.5rem;
+}
+
+/*Child-Component*/
+
+/* Cards*/
+.main-card{
+    width: 75rem;
+    height: 35rem;
+    position: absolute;
+    margin-top: 1rem;
+    margin-left: -4rem;
+}
+.nested-card{
+       height: 25rem;
+    margin-top: 4.5rem;
+    }
+/*.manage-nested-card ul li a{
+     font-size: 20px;
+    color: gray;
+}*/
+.verticalDivider1 {
+    border-left: 1px solid #E6E6E6;
+    height: 15rem;
+    position: absolute;
+    right: 59rem;
+    top: 10rem;
+}
+.verticalDivider2 {
+    border-left: 1px solid #E6E6E6;
+    height: 7rem;
+    position: absolute;
+    right: 59rem;
+    top: 0rem;
+}
+
+
+.multipleChartChildComp{
+    padding-left: 0rem;
+    // width: 75rem;
+    margin-top: 2.5rem;
+    height: 6rem;
+}
+
+/* start Icon Modal*/
+#navbarContent ul li {
+    margin-left: -1.5rem
+}
+#navbarContent ul li a{
+    text-align: center;
+    border-radius: 4px;
+    width: 8rem;
+    color: black;
+    
+}
+// #modalBody a{
+//     color: black;
+//     font-size: 20px;
+// }
+
+
+.selectIcon{
+    color: white;
+    background-color: #18A689
+}
+
+.iconSpan{
+    position: absolute;
+    margin-top: 0.7rem;
+    margin-left: 1rem;
+    font-size: 19px;
+}
+
+.modalNavbar{
+    height: 3.5rem; 
+    background-color: #18A689; 
+}
+#navbarContent ul li a{
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+    color: white;
+}
+.selectCategory{
+    background-color: white;
+    color: gray !important;
+}
+.IconsModalContent{
+    width: 154%;
+    margin-left: -16rem;
+    height: 650px;
+    border-radius: 1rem;
+    
+}
+
+       @media (min-width: 1300px) {
+     .showIcons {
+          height: 450px; 
+          }
+} 
+@media (min-height: 650px) {
+    .showIcons {
+        
+        -webkit-columns: 4 150px;
+        -moz-columns: 4 150px;
+        columns: 4 150px;
+        overflow-x: auto;
+    
+                  }
+    } 
+/* end Icon Modal*/
+
+.firstCardNav ul li {
+    list-style: none;
+    
+}
+.firstCardNav ul li input{
+    height: 2.5rem;
+}
+
+ /*Finish and Embed*/
+ .finishEmbedBtns{
+     position:absolute;
+     margin-top:5rem;
+ }
+ 
+.finishEmbedBody{
+    margin-left: 18rem;
+    margin-top: -4rem;
+}
+.finishEmbedBody button{
+    margin-left: 1.5rem;
+    background-color: #1C84C6;
+    border-color:#1C84C6;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 6px;
+    color: white !important;
+    padding-top: 7px;
+}
+.finishEmbedBody ul li {
+    position: absolute;
+    margin-left: -18rem;
+    margin-top: 4rem;
+}
+.ShareDiv{
+    position:absolute;
+    margin-top:4rem;
+    text-align:center
+}
+.EmbedDiv{
+    position:absolute;
+    margin-top:4rem;
+    text-align:center
+}
+
+
+.card-block-span{
+    position: absolute;
+    margin-top: -0.8rem;
+    margin-left: -11px;
+    font-size: 19px;
+    margin-bottom: -14px;
+    color: gray;
+}
+
+
+.top-hr{
+    margin-top: 13px;
+    margin-left: -20px;
+    width: 75rem;
+   
+}
+ /*Second Card*/
+.navDiv{
+    width: 36rem;
+    color: black;
+    position: absolute;
+}
+.bottom-hr{
+    position: absolute;
+    margin-top: 23.8rem;
+    margin-left: -20px;
+    width: 75rem;
+}
+.selectNavCard{
+    color:white;
+    background: #18A689;
+}
+/*selectFinishEmbedChildNav*/
+.selectFinishEmbedChildNav{
+    color: white !important;
+    background-color: #18A689;
+    width: 12.3rem;
+}
+.arrowRightFinishEmbed{
+    position: absolute;
+    height: 0;
+    border-top: 1.5rem solid transparent;
+    border-bottom: 1.5rem solid transparent;
+    border-left: 0.9rem solid #18A689;
+    margin-left: 100.2%;
+}
+/*selectAddDatadNav*/
+.selectAddDatadNav{
+    color:white !important;
+    background-color:  #18A689;
+    width: 109.8%;
+}
+.arrowRightAddData{
+    position: absolute;
+    height: 0;
+    border-top: 1.5rem solid transparent;
+    border-bottom: 1.5rem solid transparent;
+    border-left: 0.9rem solid #18A689;
+    margin-left: 110.1%;
+}
+
+/*Button*/
+
+.divBtn{
+    position: absolute;
+    margin-top: 25.5rem;
+    margin-left: 58.9rem;
+}
+.previous{
+    width: 5rem;
+    border-radius: 6px;
+    background: #18A689;
+    color: #FFFFFF;
+    height: 2rem;
+    font-size: 11px;
+}
+
+.Next{
+    width: 60px;
+    border-radius: 6px;
+    background: #18A689;
+    color: #FFFFFF;
+    height: 2rem;
+    font-size: 11px;
+    border-color: none; 
+}
+.cancel{
+    border-color: none;     
+    width: 4rem;
+    border-radius: 6px;
+    background: #C9302C;
+    color: #FFFFFF;
+    height: 2rem;
+    font-size: 11px;
+}
+.addMultipleChartFields{
+     margin-left: 40rem;
+    width: 8rem;
+    border-radius: 6px;
+    background: #18A689;
+    color: #FFFFFF;
+    height: 2.5rem;
+    font-size: 12px;
+    display: block;
+
+
+}
+.addNewChartBtn{
+    background-color: #18A689;
+    color: white;
+    margin-top: 2rem;
+    margin-left: 13rem;
+    
+}
+
+/*Sections*/
+div label{
+    font-size: 15px;
+}
+.height{
+    margin-left: 30rem;
+    font-size: 20px;
+    margin-top: -66px;
+}
+.width{
+    margin-top: 1rem;
+    margin-left: 30rem;
+    font-size: 20px;
+
+}
+.choose-icon{
+    margin-top: -7rem;
+    margin-left: 15rem;
+    font-size: 20px;
+}
+.background-color{
+    margin-top: -82px;
+    margin-left: 15rem;
+    font-size: 20px;
+}
+/*end cards*/
+
+
+

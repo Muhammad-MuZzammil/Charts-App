@@ -1,0 +1,25 @@
+.singleChart{
+    margin-top: 10%;
+    margin-left: 10%;
+}
+.title{
+    margin-left: 2%;
+}
+.yData{
+    margin-top: 3%;
+    margin-left: -1%;
+    color: white;
+    position: absolute;
+}
+.xData{
+    position:absolute;
+    margin-top: 8%;
+    margin-left: -2%;
+}
+.iconClass{
+    color: white;
+    margin-top: 5.5%;
+    position: absolute;
+    margin-left: -1%;
+}
+    

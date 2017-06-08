@@ -1,0 +1,27 @@
+
+<!-- Start  MyChart-->
+<section id="card">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" *ngFor="let chart of getDbChartValues?.singleCharts; let i = index;">
+                <div style="border: 1px solid lightgray; height: 60%; margin-top: 87%;">
+                    <div class="SinglechartFromChild">
+                        <real-preview [myValues]="chart"></real-preview>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" *ngFor="let chart of getDbChartValues?.multiCharts; let i = index;">
+                <div style="border: 1px solid lightgray; height: 60%; margin-top: 40%;">
+                    <div class="row  parentOfChildMultipleCard">
+                        <div class="MultiplechartFromChild" *ngFor="let nestedCharts of chart?.charts; let i = index">
+                            <real-preview [myValues]="nestedCharts" *ngIf="i < 2" ></real-preview>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<!--End Card-->

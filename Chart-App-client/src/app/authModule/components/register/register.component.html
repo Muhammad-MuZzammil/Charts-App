@@ -1,0 +1,79 @@
+<!--========== Start Signup==========-->
+<section id="register">
+    <div class="section-register">
+        <div class="container">
+            <div class="row">
+                <!-- Create Account-->
+                <form class=" form-register col-md-6" role="form" [formGroup]="registerForm" (ngSubmit)="SubmitRegisterForm(registerForm.value,$event)"
+                    novalidate>
+                    <h3 class="register-heading">Create account</h3>
+                    <!-- Register Name field -->
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" class="form-control" name="Username" [formControl]="registerForm.controls['Username']"
+                            required pattern="[a-zA-Z \d]+[a-zA-Z\d_-]">
+                        <div [hidden]=" (!registerForm.controls['Username'].hasError('required') || !registerForm.controls['Username'].touched) &&
+             (registerForm.controls['Username'].valid || registerForm.controls['Username'].pristine )" class="text-danger">
+                            Username is required and format should be <b>John, John Doe</b>.
+                        </div>
+                    </div>
+                    <!-- Register Email field -->
+
+                    <div class="form-group">
+                        <input (focus)="onFocusEmial()" type="email" placeholder="Email" class="form-control" name="email" [formControl]="registerForm.controls['email']"
+                            required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                        <div [hidden]="(!email || !registerForm.controls['email'].hasError('required') ) &&
+             (registerForm.controls['email'].valid || registerForm.controls['email'].pristine)" class="text-danger">
+                            Email is required and format should be <b>saad@example.com</b>.
+                        </div>
+                            <span *ngIf="uniqueEmail" style="color:red;">{{emailError}}</span>
+                        
+                    </div>
+
+                    <!-- Register Password field -->
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" required minlength="3" placeholder="Password" [formControl]="registerForm.controls['password']">
+                        <div [hidden]="(!registerForm.controls['password'].hasError('required') || !registerForm.controls['password'].touched) &&
+             (registerForm.controls['password'].valid || registerForm.controls['password'].pristine)" class="text-danger">
+                            Password is required and it should be at least 3 charactor.
+                        </div>
+                    </div>
+                    <!-- Register Confirm Password field -->
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" (blur)="checkValidation(registerForm.value)" name="confirmPassword" required
+                            minlength="3" placeholder="Confirm Password" [formControl]="registerForm.controls['confirmPassword']">
+                        <div [hidden]="(!registerForm.controls['confirmPassword'].hasError('required') || !registerForm.controls['confirmPassword'].touched) &&
+               (registerForm.controls['confirmPassword'].valid || registerForm.controls['confirmPassword'].pristine)" class="text-danger">
+                            Confirm Password is required and it should be at least 3 charactor.
+                        </div>
+                    </div>
+                    <!--Confirm Password Warnings -->
+                    <div class="form-group">
+                        <span class="text-danger" *ngIf="warningShow"> {{passwordWarning}}</span>
+                        <span style="color:green;" *ngIf="setPasswordShow">{{setPassword}}</span>
+                    </div>
+                    <!--Loader-->
+                    <div *ngIf="trueLoginAlert" class="loader"></div>
+                        
+                    <!--Register Button-->
+                    <div>
+                        <!--[disabled]="(!registerForm.valid) || !setPasswordShow"-->
+                        <button type="submit" class="btn btn-default" >Register</button>
+                    </div>
+                    <div class="loginLink">
+                        <br>
+                        <small>Already have an account?</small>
+                        <br>
+                        <br>
+                        <a style="color:gray" [routerLink]="['/login']" (click)="moveToLogin()">Login</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--==========End Signup==========-->
+<!--<login [hidden]="!loginSection"></login>-->

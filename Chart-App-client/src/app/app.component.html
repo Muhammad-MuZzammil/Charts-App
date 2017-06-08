@@ -1,0 +1,66 @@
+
+<div *ngIf="authRoutes">
+    <rootAuthComponent (onAuth)="catchRootAuth($event)"></rootAuthComponent>
+</div>
+
+<!--(clicked)="pressed($event)"-->
+<!--start sidebar-->
+<div class="container-fluid" [hidden]="!dashboard">
+    <div class="row">
+        <div class="col-md-2 sidebar">
+            <div>
+                <img src="../../../../assets/img/1.jpg" alt="" class="rounded-circle img-fluid profile-picture">
+                <h5 style="margin-top: 25px; color:white;">{{userName}}</h5>
+            </div>
+            <!--TODO generate menu with ngFor-->
+            <ul class="sidebar-nav">
+                <li [routerLink]="['/createChart']" [ngClass]="{selectSideBarNav: (selectedSideBarNav == SIDEBAR_NAV.CREATE_CHART)}" (click)="selectedSideBar(SIDEBAR_NAV.CREATE_CHART)">
+                    <div class="arrowRightSideBar" *ngIf="selectedSideBarNav == SIDEBAR_NAV.CREATE_CHART"></div>
+                    <a><i class="fa fa-pencil " aria-hidden="true"></i> <span style="margin-left:1rem;">Create Chart</span></a>
+                </li>
+                <li [routerLink]="['/my-charts']" [ngClass]="{selectSideBarNav: (selectedSideBarNav == SIDEBAR_NAV.MY_CHART)}" (click)="selectedSideBar(SIDEBAR_NAV.MY_CHART)">
+                    <div class="arrowRightSideBar" *ngIf="selectedSideBarNav == SIDEBAR_NAV.MY_CHART"></div>
+                    <a><i class="fa fa-bar-chart" aria-hidden="true"></i> <span style="margin-left:1rem;">My Chart</span></a>
+                </li>
+                <li [ngClass]="{selectSideBarNav: (selectedSideBarNav == SIDEBAR_NAV.MY_PROFILE)}" (click)="selectedSideBar(SIDEBAR_NAV.MY_PROFILE)">
+                    <div class="arrowRightSideBar" *ngIf="selectedSideBarNav == SIDEBAR_NAV.MY_PROFILE"></div>
+                    <a><i class="fa fa-user" aria-hidden="true"></i> <span style="margin-left:1rem;">My Profile</span></a>
+                </li>
+                <li [ngClass]="{selectSideBarNav: (selectedSideBarNav == SIDEBAR_NAV.TUTORIALS)}" (click)="selectedSideBar(SIDEBAR_NAV.TUTORIALS)">
+                    <div class="arrowRightSideBar" *ngIf="selectedSideBarNav == SIDEBAR_NAV.TUTORIALS"></div>
+                    <a> <i class="fa fa-book" aria-hidden="true"></i> <span style="margin-left:1rem;">Tutorials</span></a>
+                </li>
+                <li [ngClass]="{selectSideBarNav: (selectedSideBarNav == SIDEBAR_NAV.GALLERY)}" (click)="selectedSideBar(SIDEBAR_NAV.GALLERY)">
+                    <div class="arrowRightSideBar" *ngIf="selectedSideBarNav == SIDEBAR_NAV.GALLERY"></div>
+                    <a><i class="fa fa-file-image-o" aria-hidden="true"></i> <span style="margin-left:1rem;">Gallery</span></a>
+                </li>
+                <li [ngClass]="{selectSideBarNav: (selectedSideBarNav == SIDEBAR_NAV.SETTINGS)}" (click)="selectedSideBar(SIDEBAR_NAV.SETTINGS)">
+                    <div class="arrowRightSideBar" *ngIf="selectedSideBarNav == SIDEBAR_NAV.SETTINGS"></div>
+                    <a><i class="fa fa-cog" aria-hidden="true"></i> <span style="margin-left:1rem;">Settings</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+
+            <div class="">
+                <a class="rounded btn-sidebar-toggle">
+                    <i class="fa fa-bars" aria-hidden="true" id="sideBar"></i>
+                </a>
+                <button style="float:right" type="button" class="btn btn-logout" (click)="logout()">
+                <i class="fa fa-user" aria-hidden="true"></i> 
+                     Log Out
+                 </button>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="navbar">
+                <span class="navbar-page-name">Page Name</span>
+                <span class="navbar-route"> / Simple Route </span>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar Navigation -->

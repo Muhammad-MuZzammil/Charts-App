@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='/css/view.css'/>
+</head>
+
+<body>
+
+<div class="singleChart">
+  <span class="title" >
+    <%-wrapper.title %>
+    <!--<i class="fa fa-code" aria-hidden="true"></i>-->
+     </span>
+  <i class="<%- wrapper.iconClass %> iconClass" ></i>
+  <span class="yData" >  
+    <%-wrapper.yData %>
+    </span>
+
+  <span class="xData"> 
+   <%- wrapper.xData %>
+    </span>
+
+  <div id="chart"></div>
+</div>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+      var maxY = 100;
+    var height = 90;
+    var width = 90;
+    var y = 100 - 77
+
+    d3.select('#chart')
+      .text("")
+      .style('color', '#f4f4f4s')
+
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .style('background-color', '#f4f4f4')
+      .append('rect')
+      .style('fill', '<%- wrapper.bColor %>')
+      .attr('width', <%- wrapper.width %>)
+      .attr('height', <%- wrapper.maxY %>)
+      .attr('x', 0)
+      .attr('y', () => {
+        return (height / maxY) * y
+      })
+
+   </script>
+</body>
+
+</html>

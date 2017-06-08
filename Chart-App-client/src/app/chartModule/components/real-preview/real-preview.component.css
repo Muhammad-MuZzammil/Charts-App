@@ -1,0 +1,69 @@
+    .realPreviewCard{
+    width: 75rem;
+    height: 7.5rem;
+    }
+   
+    .cardTitle{
+    margin-left: 2.8rem;
+    position: absolute;
+    margin-top: -2rem;
+    color: #808081;
+    }
+    .cardIcon{
+    margin-left: 55px;
+    position: absolute;
+    margin-top: 2.8rem;
+    color: white;
+    }
+    .cardYdata{
+    margin-left: 53px;
+    margin-top: 1rem;
+    position: absolute;
+    color: white;
+    }
+    .cardId{
+        margin-top:3rem;
+        margin-left:1.7rem;
+    }
+    .cardXdata{
+        margin-left: -3rem;
+        font-size: 75%;
+        margin-top: 4.5rem;
+        position: absolute;
+        color: #808081;
+    }
+    /*@media(min-width:614px){
+        .realPreviewCard{
+        width: 11rem;
+        height: 9rem;
+        }
+        .cardId{
+        margin-top: 2rem;
+        margin-left: 2.5rem;
+        }
+         .cardTitle{
+    margin-left: 4rem;
+    position: absolute;
+    margin-top: 0.5rem;
+    color: #808081;
+    }
+    .cardIcon{
+    margin-left: 77px;
+    position: absolute;
+    margin-top: 6rem;
+    color: black;
+    }
+    .cardYdata{
+        margin-left: 76px;
+        margin-top: 3.5rem;
+        position: absolute;
+        color: white;
+    }
+    
+    .cardXdata{
+    margin-left: 4.3rem;
+    margin-top: -1.5rem;
+    position: absolute;
+    color: #808081;
+    }
+    }*/

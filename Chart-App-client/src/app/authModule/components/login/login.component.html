@@ -1,0 +1,57 @@
+<!--========== Start LOGIN==========-->
+<section id="login" >
+    <div class="section-login">
+        <div class="container">
+            <div class="row">
+                <!--Angular2 Form with Validation-->
+                <form class=" form-login col-md-6 " role="form" [formGroup]="loginForm" (ngSubmit)="SubmitLoginForm(loginForm.value,$event)" novalidate>
+                    <h2 class="login-heading">Login <i class="fa fa-lock"></i></h2>
+                    <!-- Login Email field -->
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" class="form-control" name="userEmail" [formControl]="loginForm.controls['userEmail']" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                        <div [hidden]="(!loginForm.controls['userEmail'].hasError('required') || !loginForm.controls['userEmail'].touched) &&
+                             (loginForm.controls['userEmail'].valid || loginForm.controls['userEmail'].pristine )" class="text-danger">
+                            Email is required and format should be <b>saad@example.com</b>.
+                        </div>
+                    </div>
+                    <!-- Login Password field -->
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="userPassword" required minlength="3" placeholder="Password" [formControl]="loginForm.controls['userPassword']">
+                        <div [hidden]="(!loginForm.controls['userPassword'].hasError('required') || !loginForm.controls['userPassword'].touched) &&
+                            (loginForm.controls['userPassword'].valid || loginForm.controls['userPassword'].pristine)" class="text-danger">
+                            Password is required and it should be at least 3 charactor.
+                        </div>
+                    </div>
+                    <!--<div class="alert alert-success" role="alert" *ngIf="trueLoginAlert">-->
+                        <!--<strong>Well done!</strong> You successfully Logged In.-->
+                        <div *ngIf="trueLoginAlert" class="loader"></div>
+                        <!--<span  *ngIf="trueLoginAlert"><i class="fa fa-refresh" aria-hidden="true"></i></span>-->
+                    <!--</div>-->
+                    <div class="alert alert-danger" role="alert" *ngIf="falseLoginAlert">
+                        <strong>Unfortunately!</strong> Email or Password is invalid.
+                    </div>
+                    <!--Login Button -->
+                    <div>
+                        <button type="submit" class="btn btn-default"  [disabled]="!loginForm.valid" >Login</button>
+                    </div>
+                    <br>
+
+                    <div class="registerLink">
+                        <!--<a href="" style="color:gray"><small>Forgot password?</small></a>-->
+                        <br>
+                        <small>Do not have an account?</small>
+                        <br>
+                        <br>
+                        <!--Move form Login to Register user-->
+                        <a class="btn btn-sm" style="color:gray" (click)="moveToCreateAccount()">Create an account</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    
+</section>
+<!--====== End LOGIN=======-->
+
+<!--<register [hidden]="!registerSection"></register>-->

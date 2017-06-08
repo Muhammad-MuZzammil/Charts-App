@@ -1,0 +1,280 @@
+                                 
+<!--single-chart-->
+<div id="single-chart" style="width: 42rem;">
+            <h3 class="realPreviewChartHeading" ><b>Real-time Preview Area</b></h3>
+
+            <p class="realPreviewChartInfo">
+                This is roughly what your final chart <br>
+                will look like (you can change icons/ <br> 
+                color/ Text etc). <b>Practice</b>with this <br> 
+                before going to the complex ones. <br> </p>
+
+    <div class=" card" style="margin-top: 8rem;margin-left: 30.3rem;width: 11rem;height:8.6rem">
+        
+        <div class=" realPreviewChartChildComp">
+            <span>
+                        <real-preview class="real-preview" [myValues]="singleChartData"></real-preview>
+                    </span>
+        </div>
+    </div>
+    <div class="card SingleChartMainCard">
+        <div class="card-block">
+            <span class="card-block-span"><b>Single</b> Dimension Chart <b>Wizard</b></span>
+            <div class="top-hr">
+                <!--divide main card and nested card-->
+                <hr>
+            </div>
+            <!--Second Card OR Nested Card-->
+            <div class="AddDataNavigation ">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item bg-faded" [ngClass]="{selectNavCard: (selectedNavigationState == NAVIGATION_STATES.ADD_DATA)}" (click)="selectNavigationState(NAVIGATION_STATES.ADD_DATA)">
+                        <a class="nav-link">1. Add Data</a>
+                    </li>
+                    <li class="nav-item bg-faded" style="margin-left:1rem;" [ngClass]="{selectNavCard:  (selectedNavigationState == NAVIGATION_STATES.CONFIGURATION)}"
+                        (click)="selectNavigationState(NAVIGATION_STATES.CONFIGURATION)">
+                        <a class="nav-link">2. Configure Style</a>
+                    </li>
+
+                    <li class="nav-item bg-faded" style="margin-left:1rem;" [ngClass]="{selectNavCard: (selectedNavigationState == NAVIGATION_STATES.FINISH_EMBED)}"
+                        (click)="selectNavigationState(NAVIGATION_STATES.FINISH_EMBED)">
+                        <a class="nav-link">3. Finish and Embed</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card SingleChartNestedCard">
+                <div>
+                    <div [hidden]="selectedNavigationState != NAVIGATION_STATES.ADD_DATA">
+                        <!--Chart Type Data-->
+                        <ul class="nav flex-column" style="position: absolute;width: -1rem;line-height: 2.7rem;">
+                            <li class="nav-item" style="color:gray;" [ngClass]="{selectAddDatadNav: (selectedAddDataChildNav == ADD_DATA.TYPE_DATA)}"
+                                (click)="selectAddDatadNav(ADD_DATA.TYPE_DATA)">
+                                <div class="arrowRightAddData" *ngIf="selectedAddDataChildNav == ADD_DATA.TYPE_DATA"></div>
+                                <a class="nav-link active"><i class="fa fa-keyboard-o" aria-hidden="true" style="font-size: 2rem;"></i> 
+                                                <span style="margin-left: 1rem; margin-top: 0rem; ">Type Data</span></a>
+                            </li>
+                            <li class="nav-item" style="color:gray;" [ngClass]="{selectAddDatadNav: (selectedAddDataChildNav == ADD_DATA.UPLOAD_EXCEL)}"
+                                (click)="selectAddDatadNav(ADD_DATA.UPLOAD_EXCEL)">
+                                <div class="arrowRightAddData" *ngIf="selectedAddDataChildNav == ADD_DATA.UPLOAD_EXCEL"></div>
+                                <a class="nav-link"><i class="fa fa-file-excel-o" aria-hidden="true" style="font-size: 2rem; "></i>
+                                             <span style="margin-left: 1rem; margin-top: 0rem; "> Upload Excel</span></a>
+                            </li>
+                            <li class="nav-item" style="color:gray;" [ngClass]="{selectAddDatadNav: (selectedAddDataChildNav == ADD_DATA.ADD_MACHINE)}"
+                                (click)="selectAddDatadNav(ADD_DATA.ADD_MACHINE)">
+                                <div class="arrowRightAddData" *ngIf="selectedAddDataChildNav == ADD_DATA.ADD_MACHINE"></div>
+                                <a class="nav-link"><i class="fa fa-truck" aria-hidden="true" style="font-size: 2rem; "></i>
+                                            <span style="margin-left: 1rem; margin-top: 0rem; "> Add Machine</span></a>
+                            </li>
+                        </ul>
+                        <!--vertical divider-->
+                        <div class="verticalDivider1"></div>
+                        <!--<div class="verticalDivider2"></div>-->
+
+
+                        <!--<div>-->
+                        <!--<div>-->
+
+                        <!--Add Data-->
+                        <div class="firstCardNav" [hidden]="selectedNavigationState != NAVIGATION_STATES.ADD_DATA || selectedAddDataChildNav != ADD_DATA.TYPE_DATA">
+                            <!--Chart Data-->
+                            <ul>
+                                <li style="margin-left: 12.5rem; margin-top: 17px;">
+                                    <label for="">X Data</label>
+                                    <br>
+                                    <input type="text" (blur)="chartValueChanged()" [(ngModel)]="singleChartData.xData" style="padding-left: 10px;">
+                                </li>
+                                <li style="margin-left: 26.5rem; margin-top: -72px;">
+                                    <label for="">Y Data</label>
+                                    <br>
+                                    <input type="number" [(ngModel)]="singleChartData.yData" (blur)="chartValueChanged()" style="padding-left: 10px;">
+                                </li>
+                                <li style="margin-left: 40.5rem; margin-top: -71px;">
+                                    <label for="">Color</label>
+                                    <br>
+                                    <input [(colorPicker)]="singleChartData.bColor" [style.background]="singleChartData.bColor" 
+                                     [ngStyle]="{'color': color}" (click)="color = 'white'" [value]="Chartcolor"
+                                       (blur)="chartValueChanged()" style="padding-left: 10px;" />
+
+                                </li>
+                                <li style="margin-left: 54.5rem; margin-top: -71px;">
+                                    <label for="">Choose Icon</label>
+                                    <br>
+                                    <!--Large modal-->
+                                    <div>
+                                        <span [ngClass]="singleChartData.iconClass" class="iconSpan"></span>
+                                        <input type="text" (click)="openIconModal(lgModal)" style="padding-left: 10px;">
+                                    </div>
+                                    <!--Icon Modal-->
+                                    <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content  IconsModalContent">
+                                                <div class="modal-header">
+                                                    <p class="modal-title pull-left" style="color: gray; font-size: 100%;">Choose Icon Font</p>
+                                                    <button type="button" class="close pull-right" aria-label="Close">
+                                                                     <span (click)="lgModal.hide()"  aria-hidden="true">&times;</span>
+                                                                 </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!--start Modal NavBar-->
+                                                    <div>
+                                                        <nav id="modal-nav" style=" margin-bottom: 10px;width: 76.9rem;margin-top: -1rem;margin-left: -1rem;" class="navbar navbar-toggleable-md  bg-faded modalNavbar">
+                                                            <div class="collapse navbar-collapse" id="navbarContent">
+                                                                <ul class="navbar-nav mr-auto">
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" [ngClass]="{selectCategory: (selectedIconCategory == ICON_CATEGORIES.CATEGORY1)}" (click)="selectCategory(ICON_CATEGORIES.CATEGORY1)"> Category 1 </a>
+                                                                    </li>
+                                                                    <li class="nav-item ">
+                                                                        <a class="nav-link" [ngClass]="{selectCategory: (selectedIconCategory == ICON_CATEGORIES.CATEGORY2)}" (click)="selectCategory(ICON_CATEGORIES.CATEGORY2)">Category 2</a>
+                                                                    </li>
+                                                                    <li class="nav-item ">
+                                                                        <a class="nav-link" [ngClass]="{selectCategory: (selectedIconCategory == ICON_CATEGORIES.CATEGORY3)}" (click)="selectCategory(ICON_CATEGORIES.CATEGORY3)"> Category 3</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </nav>
+                                                    </div>
+                                                    <!--end Modal NavBar-->
+                                                    <!--Icons data-->
+                                                    <!--Start Modal Body-->
+                                                    <div class="showIcons">
+                                                    <div   [hidden]="selectedIconCategory != ICON_CATEGORIES.CATEGORY1">
+                                                            <div  *ngFor="let icon of icons" [ngClass]="{selectIcon: (selectedIconModal == icon.class)}">
+                                                                    <span>
+                                                                        <i class=" {{icon.class}}"  (click)="selectIcon(icon.class)" > {{icon.name}}</i>
+                                                                    </span>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    </div> 
+                                                    <!-- End Modal Body-->
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn Next" style="width: 70px" (click)="lgModal.hide()" (click)="chooseIcon()">Choose</button>
+                                                    <button type="button" class="btn cancel" (click)="lgModal.hide()">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                        </div>
+
+                        <div [hidden]="selectedAddDataChildNav != ADD_DATA.UPLOAD_EXCEL" style="text-align: center;">
+                            <h1>Sample Data</h1>
+                        </div>
+
+                        <div [hidden]="selectedAddDataChildNav != ADD_DATA.ADD_MACHINE" style="text-align: center;">
+                            <h1>Sample Info</h1>
+                        </div>
+
+                    </div>
+
+
+
+                    <!--Configure style-->
+                    <div class="firstCardNav" [hidden]=" selectedNavigationState != NAVIGATION_STATES.CONFIGURATION">
+                        <ul>
+                            <li style="margin-left: 0.5rem; margin-top: 17px;">
+                                <label for="">Title</label>
+                                <br>
+                                <input type="text" value="Temperature" [(ngModel)]="singleChartData.title" (blur)="chartValueChanged()" style="padding-left: 10px;">
+                            </li>
+                            <li style="margin-left: 14.5rem; margin-top: -72px;">
+                                <label for="">Width</label>
+                                <br>
+                                <input type="number" value="100" [(ngModel)]="singleChartData.width" (blur)="chartValueChanged()" style="padding-left: 10px;">
+                            </li>
+                            <li style="margin-left: 28.5rem; margin-top: -71px;">
+                                <label for="">Height</label>
+                                <br>
+                                <input type="number" value="100" [(ngModel)]="singleChartData.height" (blur)="chartValueChanged()" style="padding-left: 10px;">
+                            </li>
+                            <li style="margin-left: 42.5rem; margin-top: -71px;">
+                                <label for="">Max Y</label>
+                                <br>
+                                <input type="number" value="100" [(ngModel)]="singleChartData.maxY" (blur)="chartValueChanged()" style="padding-left: 10px;">
+                            </li>
+                            <li style="margin-left: 56.5rem; margin-top: -71px;">
+                                <label for="">Max Threshold</label>
+                                <br>
+                                <input type="text" style="padding-left: 10px;">
+                            </li>
+                        </ul>
+                    </div>
+                    <!--</div>-->
+                    <!--</div>-->
+
+
+                    <!--Finish and Embed-->
+                    <div class="finishEmbedBody" [hidden]="selectedNavigationState != NAVIGATION_STATES.FINISH_EMBED">
+
+                        <ul class="nav flex-column">
+                            <li class="nav-item" style="color:gray;" [ngClass]="{selectFinishEmbedChildNav: (selectedFinishEmbedChild == FINISH_EMBED.SAVE_AS)}"
+                                (click)="selectFinishEmbedChildNav(FINISH_EMBED.SAVE_AS)">
+                                <div class="arrowRightFinishEmbed" *ngIf="selectedFinishEmbedChild == FINISH_EMBED.SAVE_AS"></div>
+
+                                <a class="nav-link active"><i class="fa fa-floppy-o" aria-hidden="true" style="font-size:2rem;"></i>
+                                                <span style="margin-left: 1rem; margin-top: 0rem;">Save as</span></a>
+                            </li>
+                            <br>
+                            <br>
+
+                            <li class="nav-item" style="color:gray;" [ngClass]="{selectFinishEmbedChildNav: (selectedFinishEmbedChild == FINISH_EMBED.Share)}"
+                                (click)="selectFinishEmbedChildNav(FINISH_EMBED.Share)">
+                                <div class="arrowRightFinishEmbed" *ngIf="selectedFinishEmbedChild == FINISH_EMBED.Share"></div>
+                                <a class="nav-link" (click)="shareChart()"><i class="fa fa-share" aria-hidden="true" style="font-size:2rem; "></i>
+                                             <span style="margin-left: 1rem; margin-top: 0rem; "> Share</span></a>
+                            </li>
+                            <br>
+                            <br>
+
+                            <li class="nav-item" style="color:gray;" [ngClass]="{selectFinishEmbedChildNav: (selectedFinishEmbedChild == FINISH_EMBED.Embed)}"
+                                (click)="selectFinishEmbedChildNav(FINISH_EMBED.Embed)">
+                                <div class="arrowRightFinishEmbed" *ngIf="selectedFinishEmbedChild == FINISH_EMBED.Embed"></div>
+
+                                <a class="nav-link" (click)="shareChart()"><i class="fa fa-wordpress" aria-hidden="true" style="font-size:2rem; "></i>
+                                            <span style="margin-left: 1rem; margin-top: 0rem; "> Embed</span></a>
+                            </li>
+                        </ul>
+                        <div class="verticalDivider1"></div>
+                        <!--<div class="verticalDivider2"></div>-->
+
+                        <div [hidden]="selectedFinishEmbedChild !=FINISH_EMBED.SAVE_AS ">
+                            <button class="btn" (click)="downlaodChart('jpg')">.jpg</button>
+                            <button class="btn" (click)="downlaodChart('png')">.png</button>
+                            <button class="btn" (click)="downlaodChart('svg')">SVG</button>
+                            <button class="btn">.pdf</button>
+                        </div>
+
+
+
+                        <div [hidden]="selectedFinishEmbedChild != FINISH_EMBED.Share">
+                            <input type="text" style="height: 2.5rem; width: 26rem;" value = "http://localhost:4000/share/{{singleChartData._id}}">
+                            <!--<input>http://localhost:4000/share/{{singleChartData._id}}</a>-->
+                        </div>
+                        <div [hidden]="selectedFinishEmbedChild != FINISH_EMBED.Embed">
+                            <!--<iframe src="http://localhost:4000/share/{{singleChartData._id}}" frameborder="0"></iframe>-->
+                            <a>http://localhost:4000/share/{{singleChartData._id}}</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="bottom-hr">
+                    <hr>
+                </div>
+                <div class="divBtn">
+                    <button type="button" class="btn previous" (click)="previous()">Previous</button>
+                    <button type="button" class=" btn Next" (click)="next()" [hidden]="selectedNavigationState == NAVIGATION_STATES.FINISH_EMBED">Next</button>
+                    <button type="button" class="btn Next" (click)="finish()" [hidden]="selectedNavigationState == NAVIGATION_STATES.ADD_DATA || selectedNavigationState == NAVIGATION_STATES.CONFIGURATION">Finish</button>
+                    <button type="button" class="btn cancel">Cancel</button>
+                </div>
+            </div>
+            <!--card-block-->
+        </div>
+        <!--card SingleChartMainard-->
+        <!--End Chart Card-->
+    </div>
+</div>
